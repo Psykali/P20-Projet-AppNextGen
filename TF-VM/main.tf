@@ -114,8 +114,6 @@ resource "azurerm_linux_virtual_machine" "vm1" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
-
-  custom_data = base64encode(file("cloud-init.yaml"))
 }
 
 resource "azurerm_network_interface_security_group_association" "nic_sg_vm1"{
@@ -165,8 +163,6 @@ resource "azurerm_linux_virtual_machine" "vm2" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
-
-  custom_data = base64encode(file("cloud-init.yaml"))
 }
 
 resource "azurerm_network_interface_security_group_association" "nic_sg_vm2"{
