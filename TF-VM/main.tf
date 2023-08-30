@@ -101,6 +101,8 @@ resource "azurerm_linux_virtual_machine" "vm1" {
   size                  = "Standard_DS1_v2"
   admin_username        = var.admin_username
   admin_password        = var.admin_password
+  disable_password_authentication = false
+
   network_interface_ids = [azurerm_network_interface.nic_vm1.id]
 
   os_disk {
@@ -151,6 +153,8 @@ resource "azurerm_linux_virtual_machine" "vm2" {
   size                  = "Standard_DS1_v2"
   admin_username        = var.admin_username
   admin_password        = var.admin_password
+  disable_password_authentication = false
+
   network_interface_ids=[azurerm_network_interface.nic_vm2.id]
   os_disk {
     caching             = "ReadWrite"
