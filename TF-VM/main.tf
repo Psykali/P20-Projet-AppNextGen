@@ -42,14 +42,12 @@ resource "azurerm_lb_backend_address_pool" "pool" {
 
 # Create a load balancing rule for SSH traffic
 resource "azurerm_lb_rule" "rule_ssh" {
-  resource_group_name   = var.resource_group_name
   loadbalancer_id                = azurerm_lb.lb.id
   name                           = "myLoadBalancingRule-SSH"
   protocol                       = "Tcp"
   frontend_port                  = 22
   backend_port                   = 22
   frontend_ip_configuration_name = "myFrontendIPConfig"
-  backend_address_pool_id        = azurerm_lb_backend_address_pool.pool.id
 }
 
 # Create a network security group for the virtual machines
@@ -130,13 +128,13 @@ resource "azurerm_network_interface_backend_address_pool_association" "nic_pool_
     backend_address_pool_id   =azurerm_lb_backend_address_pool.pool.id
 }
 resource "azurerm_public_ip" "pip_vm1"{
-  name                  ="${first_vm}-PIP"
+  name                  ="${var.first_vm}-PIP"
   location              = var.location
   resource_group_name   = var.resource_group_name
   allocation_method     ="Dynamic"
 }
 resource "azurerm_network_interface" "nic_vm1"{
-  name                  ="${first_vm}-NIC"
+  name                  ="${var.first_vm}-NIC"
   location              = var.location
   resource_group_name   = var.resource_group_name
   ip_configuration{
@@ -181,13 +179,13 @@ resource "azurerm_network_interface_backend_address_pool_association" "nic_pool_
   backend_address_pool_id=azurerm_lb_backend_address_pool.pool.id
 }
 resource "azurerm_public_ip" "pip_vm2"{
-  name                  ="${second_vm}-PIP"
+  name                  ="${var.second_vm}-PIP"
   location              = var.location
   resource_group_name   = var.resource_group_name
   allocation_method     ="Dynamic"
 }
 resource "azurerm_network_interface" "nic_vm2"{
-  name                  ="${second_vm}-NIC"
+  name                  ="${var.second_vm}-NIC"
   location              = var.location
   resource_group_name   = var.resource_group_name
   ip_configuration{
