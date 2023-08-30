@@ -21,10 +21,10 @@ variable "admin_password" {
 ########
 ## VM ##
 ########
-variable "1st-vm" {
+variable "1st_vm" {
   default = "skJenkins"
 }
-variable "2nd-vm" {
+variable "2nd_vm" {
   default = "skAnsible"
 }
 ################
