@@ -105,7 +105,7 @@ resource "azurerm_network_interface" "ansible" {
 }
 ####################
 resource "azurerm_virtual_machine" "jenkins" {
-  name                = "jenkins-vm"
+  name                = var.first_vm
   location            = var.location
   resource_group_name = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.jenkins.id]
@@ -153,7 +153,7 @@ resource "azurerm_virtual_machine" "jenkins" {
 }
 
 resource "azurerm_virtual_machine" "ansible" {
-  name                = "ansible-vm"
+  name                = var.second_vm
   location            = var.location
   resource_group_name = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.ansible.id]
