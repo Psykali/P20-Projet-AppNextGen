@@ -141,7 +141,7 @@ resource "azurerm_network_interface" "nic_vm1"{
   name="internal"
   subnet_id=azurerm_subnet.subnet_vm.id
   private_ip_address_allocation="Dynamic"
-  public_ip_address_id=azurerm_public_ip.pip_vm2.id
+  public_ip_address_id=azurerm_public_ip.pip_vm1.id
   }
 }
 
