@@ -138,9 +138,13 @@ resource "azurerm_virtual_machine" "jenkins" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update",
+      "sudo apt-get update && sudo apt-get -y upgrade", 
+      "sudo apt update && sudo apt -y upgrade",
+      "sudo apt-get install -y apache2 wget",
+      "sudo apt-get install -y mariadb-server",
+      "sudo apt-get install -y php libapache2-mod-php php-mysql",
       "sudo apt-get install -y default-jre",
-      "wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -",
+      "sudo wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -",
       "sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'",
       "sudo apt-get update",
       "sudo apt-get install -y jenkins"
@@ -182,9 +186,14 @@ resource "azurerm_virtual_machine" "ansible" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update",
-      "sudo apt-get install -y ansible"
-      "sudo apt-get install -y "
+      "sudo apt-get update && sudo apt-get -y upgrade", 
+      "sudo apt update && sudo apt -y upgrade",
+      "sudo apt-get install -y apache2",
+      "sudo apt-get install -y mariadb-server",
+      "sudo apt-get install -y php libapache2-mod-php php-mysql",
+      "sudo apt-get install -y ansible",
+      "sudo apt-get install -y curl",
+      "sudo apt -y install docker.io"
     ]
   }
 }
