@@ -98,7 +98,7 @@ resource "azurerm_linux_virtual_machine" "vm1" {
   name                  = var.first_vm
   location              = var.location
   resource_group_name   = var.resource_group_name
-  size                  = "Standard_DS1_v2"
+  size                  = "Standard_B2ms"
   admin_username        = var.admin_username
   admin_password        = var.admin_password
   disable_password_authentication = false
@@ -150,7 +150,7 @@ resource "azurerm_linux_virtual_machine" "vm2" {
   name                  = var.second_vm
   location              = var.location
   resource_group_name   = var.resource_group_name
-  size                  = "Standard_DS1_v2"
+  size                  = "Standard_B2ms"
   admin_username        = var.admin_username
   admin_password        = var.admin_password
   disable_password_authentication = false
