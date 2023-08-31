@@ -15,7 +15,7 @@ resource "azurerm_network_security_rule" "nsg_rule_ssh" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name   = var.resource_group_name
-  network_security_group_name = azurerm_network_security_group.proj-nsg.name
+  network_security_group_name = azurerm_network_security_group.proj_nsg.name
 }
 
 resource "azurerm_network_security_rule" "nsg_rule_http" {
@@ -29,7 +29,7 @@ resource "azurerm_network_security_rule" "nsg_rule_http" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name   = var.resource_group_name
-  network_security_group_name = azurerm_network_security_group.proj-nsg.name
+  network_security_group_name = azurerm_network_security_group.proj_nsg.name
 }
 
 resource "azurerm_network_security_rule" "nsg_rule_https" {
@@ -43,7 +43,7 @@ resource "azurerm_network_security_rule" "nsg_rule_https" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name   = var.resource_group_name
-  network_security_group_name = azurerm_network_security_group.proj-nsg.name
+  network_security_group_name = azurerm_network_security_group.proj_nsg.name
 }
 
 resource "azurerm_network_security_rule" "nsg_rule_custom" {
@@ -57,5 +57,5 @@ resource "azurerm_network_security_rule" "nsg_rule_custom" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name   = var.resource_group_name
-  network_security_group_name = azurerm_network_security_group.proj-nsg.name
+  network_security_group_name = azurerm_network_security_group.proj_nsg.name
 }
