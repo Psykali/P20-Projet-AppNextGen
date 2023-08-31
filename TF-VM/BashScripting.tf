@@ -1,10 +1,15 @@
 ####################
 ## Bash Scripting ##
 ####################
+module "vms" {
+  source = "./VMs.tf"
+}
+
 resource "null_resource" "install_packages_jenkins" {
   depends_on = [
-    azurerm_linux_virtual_machine.jenkins_vm,
+    module.vms.jenkins_vm,
   ]
+
   connection {
     type     = "ssh"
     user     = var.admin_username
@@ -28,10 +33,12 @@ provisioner "remote-exec" {
   ]
   }
 }
+
 resource "null_resource" "install_packages_ansible" {
   depends_on = [
-    azurerm_linux_virtual_machine.admin_vm,
+    module.vms.admin_vm,
   ]
+  
   connection {
     type     = "ssh"
     user     = var.admin_username
