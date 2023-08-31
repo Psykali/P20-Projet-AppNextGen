@@ -20,6 +20,7 @@ resource "azurerm_network_interface" "jenkins_nic" {
       }
   }
 }
+}
 
 resource "azurerm_network_interface" "admin_nic" {
   name                = "admin-nic"
@@ -43,4 +44,4 @@ resource "azurerm_network_interface" "admin_nic" {
       }
   }
 }
-
+}
