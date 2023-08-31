@@ -8,11 +8,18 @@ resource "azurerm_linux_virtual_machine" "jenkins_vm" {
   admin_password        = var.admin_password
   disable_password_authentication = false
 
-  storage_os_disk {
-    name              = "jenkins-osdisk"
-    caching           = "ReadWrite"
-    create_option    = "FromImage"
+  os_disk {
+    name                 = "jenkins-osdisk"
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
   }
+
+  storage_os_disk {
+    name                 = "jenkins-storage-osdisk"
+    caching              = "ReadWrite"
+    create_option        = "FromImage"
+  }
+
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
@@ -30,11 +37,16 @@ resource "azurerm_linux_virtual_machine" "admin_vm" {
   admin_username        = var.admin_username
   admin_password        = var.admin_password
   disable_password_authentication = false
-  
+  os_disk {
+    name                 = "admin-osdisk"
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
   storage_os_disk {
-    name              = "admin-osdisk"
-    caching           = "ReadWrite"
-    create_option    = "FromImage"
+    name                 = "admin-storage-osdisk"
+    caching              = "ReadWrite"
+    create_option        = "FromImage"
   }
 
   source_image_reference {
