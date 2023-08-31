@@ -5,7 +5,7 @@ resource "azurerm_virtual_network" "vnet" {
   resource_group_name   = var.resource_group_name
 }
 
-resource "azurerm_subnet" "subnet_jenkins" {
+resource "azurerm_subnet" "proj_subnet" {
   name                 = "proj-subnet"
   resource_group_name   = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
