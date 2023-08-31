@@ -2,7 +2,7 @@
 ## Bash Scripting ##
 ####################
 module "vms" {
-  source = "./VMs.tf"
+  source = "./"
 }
 
 resource "null_resource" "install_packages_jenkins" {
