@@ -14,12 +14,6 @@ resource "azurerm_linux_virtual_machine" "jenkins_vm" {
     storage_account_type = "Standard_LRS"
   }
 
-  storage_os_disk {
-    name                 = "jenkins-storage-osdisk"
-    caching              = "ReadWrite"
-    create_option        = "FromImage"
-  }
-
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
@@ -41,12 +35,6 @@ resource "azurerm_linux_virtual_machine" "admin_vm" {
     name                 = "admin-osdisk"
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
-  }
-
-  storage_os_disk {
-    name                 = "admin-storage-osdisk"
-    caching              = "ReadWrite"
-    create_option        = "FromImage"
   }
 
   source_image_reference {
