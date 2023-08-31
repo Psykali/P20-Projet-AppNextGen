@@ -1,4 +1,5 @@
 resource "azurerm_lb_nat_rule" "jenkins_nat_rule" {
+  name                  = "jenkinsrule"
   count                 = length(azurerm_linux_virtual_machine.jenkins_vm)
   resource_group_name   = var.resource_group_name
   loadbalancer_id       = azurerm_lb.lb.id
@@ -9,6 +10,7 @@ resource "azurerm_lb_nat_rule" "jenkins_nat_rule" {
 }
 
 resource "azurerm_lb_nat_rule" "admin_nat_rule" {
+  name                  = "adminrule"
   count                 = length(azurerm_linux_virtual_machine.admin_vm)
   resource_group_name   = var.resource_group_name
   loadbalancer_id       = azurerm_lb.lb.id
