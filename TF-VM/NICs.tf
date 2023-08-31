@@ -5,9 +5,7 @@ resource "azurerm_public_ip" "jenkins_public_ip" {
   allocation_method   = "Static"
   sku                 = "Basic"
 
-  dns_settings {
-    domain_name_label = "jenkins-vm"
-  }
+  domain_name_label = "jenkins-vm"
 }
 
 resource "azurerm_network_interface" "jenkins_nic" {
@@ -30,9 +28,7 @@ resource "azurerm_public_ip" "admin_public_ip" {
   allocation_method   = "Static"
   sku                 = "Basic"
 
-  dns_settings {
-    domain_name_label = "admin-vm"
-  }
+  domain_name_label = "admin-vm"
 }
 
 resource "azurerm_network_interface" "admin_nic" {
