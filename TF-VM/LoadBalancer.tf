@@ -28,7 +28,7 @@ resource "azurerm_lb_nat_rule" "jenkins_nat_rule" {
   protocol              = "Tcp"
   frontend_port         = 80
   backend_port          = 8080
-  frontend_ip_configuration_name = azurerm_lb.lb.frontend_ip_configuration.name
+  frontend_ip_configuration_name = azurerm_lb.lb.frontend_ip_configuration[0].name
 }
 
 resource "azurerm_lb_nat_rule" "admin_nat_rule" {
@@ -39,5 +39,5 @@ resource "azurerm_lb_nat_rule" "admin_nat_rule" {
   protocol              = "Tcp"
   frontend_port         = 80
   backend_port          = 8080
-  frontend_ip_configuration_name = azurerm_lb.lb.frontend_ip_configuration.name
+  frontend_ip_configuration_name = azurerm_lb.lb.frontend_ip_configuration[0].name
 }
