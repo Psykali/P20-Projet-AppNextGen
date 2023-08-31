@@ -1,4 +1,3 @@
-
 resource "azurerm_lb" "lb" {
   name                = "my-lb"
   location              = var.location
