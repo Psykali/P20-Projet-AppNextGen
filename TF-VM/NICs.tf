@@ -5,8 +5,8 @@ resource "azurerm_network_interface" "jenkins_nic" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.subnet_jenkins.id
-    private_ip_address_allocation = "Dynamic"
+    subnet_id                     = azurerm_subnet.proj_subnet.id
+    private_ip_address_allocation = "Static"
   }
 }
 
@@ -17,8 +17,8 @@ resource "azurerm_network_interface" "admin_nic" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.subnet_admin.id
-    private_ip_address_allocation = "Dynamic"
+    subnet_id                     = azurerm_subnet.proj_subnet.id
+    private_ip_address_allocation = "Static"
   }
 }
 
