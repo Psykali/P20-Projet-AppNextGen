@@ -57,7 +57,7 @@ resource "null_resource" "install_packages_jenkins" {
     type     = "ssh"
     user     = var.admin_username
     password = var.admin_password
-    host     = azurerm_linux_virtual_machine.jenkins_vm.network_interface_ids[0]
+    host     = azurerm_linux_virtual_machine.jenkins_vm.public_ip_address
   }
 
 provisioner "remote-exec" {
@@ -86,7 +86,7 @@ resource "null_resource" "install_packages_ansible" {
     type     = "ssh"
     user     = var.admin_username
     password = var.admin_password
-    host     = azurerm_linux_virtual_machine.admin_vm.network_interface_ids[0]
+    host     = azurerm_linux_virtual_machine.admin_vm.public_ip_address
   }
 
   provisioner "remote-exec" {
