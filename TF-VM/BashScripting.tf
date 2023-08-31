@@ -3,13 +3,13 @@
 ####################
 resource "null_resource" "install_packages_jenkins" {
   depends_on = [
-    azurerm_linux_virtual_machine.vm1,
+    azurerm_linux_virtual_machine.jenkins_vm,
   ]
   connection {
     type     = "ssh"
     user     = var.admin_username
     password = var.admin_password
-    host     = azurerm_linux_virtual_machine.vm1.public_ip_address
+    host     = azurerm_linux_virtual_machine.jenkins_vm.network_interface_ids[0]
   }
 
 provisioner "remote-exec" {
@@ -30,13 +30,13 @@ provisioner "remote-exec" {
 }
 resource "null_resource" "install_packages_ansible" {
   depends_on = [
-    azurerm_linux_virtual_machine.vm2,
+    azurerm_linux_virtual_machine.admin_vm,
   ]
   connection {
     type     = "ssh"
     user     = var.admin_username
     password = var.admin_password
-    host     = azurerm_linux_virtual_machine.vm2.public_ip_address
+    host     = azurerm_linux_virtual_machine.admin_vm.network_interface_ids[0]
   }
 
 provisioner "remote-exec" {
