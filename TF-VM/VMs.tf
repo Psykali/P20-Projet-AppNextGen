@@ -1,3 +1,6 @@
+######################
+## Create JenkinsVM ##
+######################
 resource "azurerm_linux_virtual_machine" "jenkins_vm" {
   name                = "jenkins-vm"
   location              = var.location
@@ -21,7 +24,9 @@ resource "azurerm_linux_virtual_machine" "jenkins_vm" {
     version   = "latest"
   }
 }
-
+####################
+## Create AdminVM ##
+####################
 resource "azurerm_linux_virtual_machine" "admin_vm" {
   name                = "admin-vm"
   location              = var.location
