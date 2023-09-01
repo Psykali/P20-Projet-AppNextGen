@@ -1,9 +1,14 @@
+################
+## Create NSG ##
+################
 resource "azurerm_network_security_group" "proj_nsg" {
   name                = "proj-nsg"
   location              = var.location
   resource_group_name   = var.resource_group_name
 }
-
+######################
+## Create NSG Rules ##
+######################
 resource "azurerm_network_security_rule" "nsg_rule_ssh" {
   name                        = "nsg-rule-ssh"
   priority                    = 1001
