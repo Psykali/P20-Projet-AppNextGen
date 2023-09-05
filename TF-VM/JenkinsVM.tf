@@ -54,5 +54,6 @@ provisioner "remote-exec" {
 #        "sudo apt install jenkins -y",
 #        "sudo ufw allow 8080"
   ]
+##   https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
   }
 }
