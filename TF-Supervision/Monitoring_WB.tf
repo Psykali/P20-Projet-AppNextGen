@@ -2,7 +2,7 @@
 ## Deploy Alerts WorkBook ##
 ############################
 resource "azurerm_application_insights_workbook" "Alerts_Analyese" {
-  name                = "Alerts_Analyses"
+  name                = uuidv4()
   location            = var.location
   resource_group_name = var.resource_group_name
   display_name        = "Alerts_Analyses"
