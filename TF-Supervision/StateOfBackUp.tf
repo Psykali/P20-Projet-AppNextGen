@@ -2,7 +2,7 @@
 ## Deploy BackUpState WorkBook ##
 #################################
 resource "azurerm_application_insights_workbook" "BackUpState" {
-  name                = uuidv4()
+  name                = "statofbackup"
   location            = var.location
   resource_group_name = var.resource_group_name
   display_name        = "BackUpState"
