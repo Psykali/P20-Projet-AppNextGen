@@ -14,13 +14,11 @@ variable "resource_group_name" {
 ## Admin  ##
 ############
 variable "admin_username" {
-  type        = string
-  default = "PsykProjsP20"
+  default = "SkLoginDipP20"
 }
 
 variable "admin_password" {
-  type        = string
-  default = "x*axbUNUeBJE^Jpwc%4*h"
+  default = "gqtErHR7Khdz!3B#M@waw"
 }
 #########################
 ## Container Registrey ##
