@@ -1,7 +1,7 @@
 #################################
 ## Deploy BackUpState WorkBook ##
 #################################
-resource "azurerm_application_insights_workbook" "BackUpState" {
+resource "azurerm_application_insights_workbook" "backupstate" {
   name                = "statofbackup"
   location            = var.location
   resource_group_name = var.resource_group_name
