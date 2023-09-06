@@ -38,7 +38,7 @@ variable "location_contreg" {
 ###############
 variable "kubernetes_cluster_name" {
   type        = string
-  default = "skcluster"
+  default = "skprjcluster"
 }
 
 variable "dns_prefix" {
