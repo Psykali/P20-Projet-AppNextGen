@@ -55,6 +55,7 @@ resource "null_resource" "install_packages_ansible" {
 #      "sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y",
     ]
     ## https://docs.docker.com/engine/install/ubuntu/
+    ## https://hub.docker.com/u/psykali
   }
 
 }
