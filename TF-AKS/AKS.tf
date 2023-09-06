@@ -33,10 +33,3 @@ resource "azurerm_kubernetes_cluster" "psykprojs" {
 #############
 ## Outputs ##
 #############
-output "acrLoginServer" {
-  value = azurerm_container_registry.psykprojs.login_server
-}
-
-output "controlPlaneFQDN" {
-  value = azurerm_kubernetes_cluster.psykprojs.fqdn
-}
