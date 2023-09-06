@@ -1,6 +1,6 @@
-############################
-## Deploy Alerts WorkBook ##
-############################
+###################################
+## Deploy MàJ Reporting WorkBook ##
+###################################
 resource "azurerm_application_insights_workbook" "VM_MAJ_Reporting" {
   name                = "VM_MAJ_Reporting"
   location            = var.location
