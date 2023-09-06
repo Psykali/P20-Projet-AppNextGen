@@ -2,7 +2,7 @@
 ## Deploy MàJ Reporting WorkBook ##
 ###################################
 resource "azurerm_application_insights_workbook" "VM_MAJ_Reporting" {
-  name                = uuidv4()
+  name                = "vmpatching"
   location            = var.location
   resource_group_name = var.resource_group_name
   display_name        = "VM_MAJ_Reporting"
