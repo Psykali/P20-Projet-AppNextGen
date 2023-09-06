@@ -31,5 +31,109 @@ resource "azurerm_kubernetes_cluster" "psykprojs" {
 #  kubernetes_cluster_id = azurerm_kubernetes_cluster.psykprojs.id
 #}
 #############
-## Outputs ##
+## Metrics ##
 #############
+## CPU
+resource "azurerm_monitor_metric_alert" "metrics_cpu" {
+  name                      = "skCluster_CPU"
+  resource_group_name = var.resource_group_name
+  description               = "Alert triggered when CPU usage exceeds threshold"
+  severity                  = 3
+  enabled                   = true
+  scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
+  evaluation_frequency      = "PT5M"
+  window_size               = "PT5M"
+  criteria {
+    all_of {
+      alert_sensitivity             = "Medium"
+      metric_namespace              = "microsoft.containerservice/managedclusters"
+      metric_name                   = "node_cpu_usage_percentage"
+      operator                      = "GreaterThan"
+      threshold                     = "70.0"
+      time_aggregation              = "Average"
+      metric_dimension              = {}
+      metric_namespace_selector     = {}
+      metric_value                  = {}
+      metric_alert_criterion_type {}
+    }
+  }
+  auto_mitigate = true
+}
+## Memory
+resource "azurerm_monitor_metric_alert" "metrics_memory" {
+  name                      = "skCluster_Memory"
+  resource_group_name = var.resource_group_name
+  description               = "Alert triggered when memory working set percentage exceeds threshold"
+  severity                  = 3
+  enabled                   = true
+  scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
+  evaluation_frequency      = "PT5M"
+  window_size               = "PT5M"
+  criteria {
+    all_of {
+      alert_sensitivity             = "Medium"
+      metric_namespace              = "microsoft.containerservice/managedclusters"
+      metric_name                   = "node_memory_working_set_percentage"
+      operator                      = "GreaterThan"
+      threshold                     = "70.0"
+      time_aggregation              = "Average"
+      metric_dimension              = {}
+      metric_namespace_selector     = {}
+      metric_value                  = {}
+      metric_alert_criterion_type {}
+    }
+  }
+  auto_mitigate = true
+}
+## NetworkIn
+resource "azurerm_monitor_metric_alert" "metrics_networkin" {
+  name                      = "skCluster_NetworkIN"
+  resource_group_name = var.resource_group_name
+  description               = "Alert triggered when network bytes in exceeds threshold"
+  severity                  = 3
+  enabled                   = true
+  scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
+  evaluation_frequency      = "PT5M"
+  window_size               = "PT5M"
+  criteria {
+    all_of {
+      alert_sensitivity             = "Medium"
+      metric_namespace              = "microsoft.containerservice/managedclusters"
+      metric_name                   = "node_network_in_bytes"
+      operator                      = "GreaterThan"
+      threshold                     = "10000000"
+      time_aggregation              = "Average"
+      metric_dimension              = {}
+      metric_namespace_selector     = {}
+      metric_value                  = {}
+      metric_alert_criterion_type {}
+    }
+  }
+  auto_mitigate = true
+}
+## NetworkOut
+resource "azurerm_monitor_metric_alert" "metrics_networkout" {
+  name                      = "skCluster_NetworkOut"
+  resource_group_name = var.resource_group_name
+  description               = "Alert triggered when network bytes out exceeds threshold"
+  severity                  = 3
+  enabled                   = true
+  scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
+  evaluation_frequency      = "PT5M"
+  window_size               = "PT5M"
+  criteria {
+    all_of {
+      alert_sensitivity             = "Medium"
+      metric_namespace              = "microsoft.containerservice/managedclusters"
+      metric_name                   = "node_network_out_bytes"
+      operator                      = "GreaterThan"
+      threshold                     = "10000000"
+      time_aggregation              = "Average"
+      metric_dimension              = {}
+      metric_namespace_selector     = {}
+      metric_value                  = {}
+      metric_alert_criterion_type {}
+    }
+  }
+  auto_mitigate = true
+}
