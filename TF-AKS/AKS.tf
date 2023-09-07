@@ -41,23 +41,16 @@ resource "azurerm_monitor_metric_alert" "metrics_cpu" {
   severity                  = 3
   enabled                   = true
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
-  evaluation_frequency      = "PT5M"
-  window_size               = "PT5M"
-  criteria {
-    all_of {
-      alert_sensitivity             = "Medium"
-      metric_namespace              = "microsoft.containerservice/managedclusters"
-      metric_name                   = "node_cpu_usage_percentage"
-      operator                      = "GreaterThan"
-      threshold                     = "70.0"
-      time_aggregation              = "Average"
-      metric_dimension              = {}
-      metric_namespace_selector     = {}
-      metric_value                  = {}
-      metric_alert_criterion_type {}
-    }
+criteria {
+    metric_namespace = "Microsoft.Compute/virtualMachines"
+    metric_name      = "Percentage CPU"
+    aggregation      = "Average"
+    operator         = "GreaterThan"
+    threshold        = 80
   }
-  auto_mitigate = true
+
+  window_size        = "PT15M"
+  frequency          = "PT5M"
 }
 ## Memory
 resource "azurerm_monitor_metric_alert" "metrics_memory" {
@@ -67,23 +60,16 @@ resource "azurerm_monitor_metric_alert" "metrics_memory" {
   severity                  = 3
   enabled                   = true
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
-  evaluation_frequency      = "PT5M"
-  window_size               = "PT5M"
-  criteria {
-    all_of {
-      alert_sensitivity             = "Medium"
-      metric_namespace              = "microsoft.containerservice/managedclusters"
-      metric_name                   = "node_memory_working_set_percentage"
-      operator                      = "GreaterThan"
-      threshold                     = "70.0"
-      time_aggregation              = "Average"
-      metric_dimension              = {}
-      metric_namespace_selector     = {}
-      metric_value                  = {}
-      metric_alert_criterion_type {}
-    }
+criteria {
+    metric_namespace = "Microsoft.Compute/virtualMachines"
+    metric_name      = "Percentage CPU"
+    aggregation      = "Average"
+    operator         = "GreaterThan"
+    threshold        = 80
   }
-  auto_mitigate = true
+
+  window_size        = "PT15M"
+  frequency          = "PT5M"
 }
 ## NetworkIn
 resource "azurerm_monitor_metric_alert" "metrics_networkin" {
@@ -93,23 +79,16 @@ resource "azurerm_monitor_metric_alert" "metrics_networkin" {
   severity                  = 3
   enabled                   = true
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
-  evaluation_frequency      = "PT5M"
-  window_size               = "PT5M"
-  criteria {
-    all_of {
-      alert_sensitivity             = "Medium"
-      metric_namespace              = "microsoft.containerservice/managedclusters"
-      metric_name                   = "node_network_in_bytes"
-      operator                      = "GreaterThan"
-      threshold                     = "10000000"
-      time_aggregation              = "Average"
-      metric_dimension              = {}
-      metric_namespace_selector     = {}
-      metric_value                  = {}
-      metric_alert_criterion_type {}
-    }
+criteria {
+    metric_namespace = "Microsoft.Compute/virtualMachines"
+    metric_name      = "Percentage CPU"
+    aggregation      = "Average"
+    operator         = "GreaterThan"
+    threshold        = 80
   }
-  auto_mitigate = true
+
+  window_size        = "PT15M"
+  frequency          = "PT5M"
 }
 ## NetworkOut
 resource "azurerm_monitor_metric_alert" "metrics_networkout" {
@@ -119,21 +98,14 @@ resource "azurerm_monitor_metric_alert" "metrics_networkout" {
   severity                  = 3
   enabled                   = true
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
-  evaluation_frequency      = "PT5M"
-  window_size               = "PT5M"
-  criteria {
-    all_of {
-      alert_sensitivity             = "Medium"
-      metric_namespace              = "microsoft.containerservice/managedclusters"
-      metric_name                   = "node_network_out_bytes"
-      operator                      = "GreaterThan"
-      threshold                     = "10000000"
-      time_aggregation              = "Average"
-      metric_dimension              = {}
-      metric_namespace_selector     = {}
-      metric_value                  = {}
-      metric_alert_criterion_type {}
-    }
+criteria {
+    metric_namespace = "Microsoft.Compute/virtualMachines"
+    metric_name      = "Percentage CPU"
+    aggregation      = "Average"
+    operator         = "GreaterThan"
+    threshold        = 80
   }
-  auto_mitigate = true
+
+  window_size        = "PT15M"
+  frequency          = "PT5M"
 }
