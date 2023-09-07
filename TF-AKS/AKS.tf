@@ -42,7 +42,7 @@ resource "azurerm_monitor_metric_alert" "metrics_cpu" {
   enabled                   = true
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
 criteria {
-    metric_namespace = "Microsoft.Compute/virtualMachines"
+    metric_namespace = "microsoft.containerservice/managedclusters"
     metric_name      = "Percentage CPU"
     aggregation      = "Average"
     operator         = "GreaterThan"
@@ -61,7 +61,7 @@ resource "azurerm_monitor_metric_alert" "metrics_memory" {
   enabled                   = true
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
 criteria {
-    metric_namespace = "Microsoft.Compute/virtualMachines"
+    metric_namespace = "microsoft.containerservice/managedclusters"
     metric_name      = "Percentage CPU"
     aggregation      = "Average"
     operator         = "GreaterThan"
@@ -80,7 +80,7 @@ resource "azurerm_monitor_metric_alert" "metrics_networkin" {
   enabled                   = true
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
 criteria {
-    metric_namespace = "Microsoft.Compute/virtualMachines"
+    metric_namespace = "microsoft.containerservice/managedclusters"
     metric_name      = "Percentage CPU"
     aggregation      = "Average"
     operator         = "GreaterThan"
@@ -99,7 +99,7 @@ resource "azurerm_monitor_metric_alert" "metrics_networkout" {
   enabled                   = true
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
 criteria {
-    metric_namespace = "Microsoft.Compute/virtualMachines"
+    metric_namespace = "microsoft.containerservice/managedclusters"
     metric_name      = "Percentage CPU"
     aggregation      = "Average"
     operator         = "GreaterThan"
