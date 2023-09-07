@@ -61,7 +61,7 @@ resource "null_resource" "install_packages_ansible" {
 ########################
 ## Metrics and Alerts ##
 ########################
-resource "azurerm_monitor_metric_alert" "admin_vm" {
+resource "azurerm_monitor_metric_alert" "admin_vm_cpu" {
   name                = "admin-vm-CPU"
   resource_group_name = var.resource_group_name
   scopes              = [azurerm_linux_virtual_machine.admin_vm.id]
@@ -78,7 +78,7 @@ resource "azurerm_monitor_metric_alert" "admin_vm" {
   window_size        = "PT15M"
   frequency          = "PT5M"
 }
-resource "azurerm_monitor_metric_alert" "admin_vm" {
+resource "azurerm_monitor_metric_alert" "admin_vm_memory" {
   name                = "admin-vm-MeM"
   resource_group_name = var.resource_group_name
   scopes              = [azurerm_linux_virtual_machine.admin_vm.id]
