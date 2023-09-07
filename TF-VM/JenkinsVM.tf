@@ -60,7 +60,7 @@ provisioner "remote-exec" {
 ########################
 ## Metrics and Alerts ##
 ########################
-resource "azurerm_monitor_metric_alert" "jenkins_vm" {
+resource "azurerm_monitor_metric_alert" "jenkins_vm_cpu" {
   name                = "jenkins-vm-CPU"
   resource_group_name = var.resource_group_name
   scopes              = [azurerm_linux_virtual_machine.jenkins_vm.id]
@@ -77,7 +77,7 @@ resource "azurerm_monitor_metric_alert" "jenkins_vm" {
   window_size        = "PT15M"
   frequency          = "PT5M"
 }
-resource "azurerm_monitor_metric_alert" "jenkins_vm" {
+resource "azurerm_monitor_metric_alert" "jenkins_vm_memory" {
   name                = "jenkins-vm-MeM"
   resource_group_name = var.resource_group_name
   scopes              = [azurerm_linux_virtual_machine.jenkins_vm.id]
