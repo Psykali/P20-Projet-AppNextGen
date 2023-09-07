@@ -43,7 +43,7 @@ resource "azurerm_monitor_metric_alert" "metrics_cpu" {
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
 criteria {
     metric_namespace = "microsoft.containerservice/managedclusters"
-    metric_name      = "Percentage CPU"
+    metric_name      = "node_cpu_usage_percentage"
     aggregation      = "Average"
     operator         = "GreaterThan"
     threshold        = 80
@@ -62,7 +62,7 @@ resource "azurerm_monitor_metric_alert" "metrics_memory" {
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
 criteria {
     metric_namespace = "microsoft.containerservice/managedclusters"
-    metric_name      = "Percentage CPU"
+    metric_name      = "node_memory_working_set_percentage"
     aggregation      = "Average"
     operator         = "GreaterThan"
     threshold        = 80
@@ -81,7 +81,7 @@ resource "azurerm_monitor_metric_alert" "metrics_networkin" {
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
 criteria {
     metric_namespace = "microsoft.containerservice/managedclusters"
-    metric_name      = "Percentage CPU"
+    metric_name      = "node_network_in_bytes"
     aggregation      = "Average"
     operator         = "GreaterThan"
     threshold        = 80
@@ -100,7 +100,7 @@ resource "azurerm_monitor_metric_alert" "metrics_networkout" {
   scopes                    = [azurerm_kubernetes_cluster.psykprojs.id]
 criteria {
     metric_namespace = "microsoft.containerservice/managedclusters"
-    metric_name      = "Percentage CPU"
+    metric_name      = "node_network_out_bytes"
     aggregation      = "Average"
     operator         = "GreaterThan"
     threshold        = 80
