@@ -15,6 +15,6 @@ locals {
     Why       = "DipP20"
     Proj        = "Jenkins_AKS"
     Infratype   = "PaaS-IaaS-IaC"
-    Ressources  = "VM-NSG-AKS-ContReg-Workbook-DockerHub-DockerImg"
+    Ressources  = "VM-NSG-VNET-AKS-ContReg-Workbook-DockerHub-DockerImg"
   }
 }
