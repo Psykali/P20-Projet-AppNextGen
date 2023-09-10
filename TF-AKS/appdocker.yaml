@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
       - name: cafe-app
-        image: psykali/cafe-app
+        image: skP20contereg.azurecr.io/prd/cafe-app
+        ### image: psykali/cafe-app
         imagePullPolicy: Always
         ports:
         - containerPort: 80
