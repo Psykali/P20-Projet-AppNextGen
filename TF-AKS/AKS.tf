@@ -17,7 +17,7 @@ resource "azurerm_kubernetes_cluster" "psykprojs" {
   identity {
     type = "SystemAssigned"
   }
-
+}
 #############
 ## Metrics ##
 #############
