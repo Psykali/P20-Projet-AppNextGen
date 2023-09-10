@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: skdockerhub
+  name: cafe-app
   namespace: skcafeapp
   labels:
      app: cafe-app
