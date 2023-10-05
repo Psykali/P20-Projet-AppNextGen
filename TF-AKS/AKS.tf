@@ -2,6 +2,7 @@
 ## Create Azure AKS ##
 ######################
 resource "azurerm_kubernetes_cluster" "psykprojs" {
+  count               = 2
   name                = var.kubernetes_cluster_name
   location            = var.location
   resource_group_name = var.resource_group_name
