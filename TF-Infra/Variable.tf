@@ -25,7 +25,7 @@ variable "admin_password" {
 #########################
 variable "contreg_name" {
   type        = string
-  default = "psykprojsacr"
+  default = "hcovnxk8s"
 }
 
 variable "location_contreg" {
